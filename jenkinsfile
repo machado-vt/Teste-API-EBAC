@@ -5,12 +5,13 @@ pipeline {
         stage('Setup') {
             steps {
                 git branch: 'main', url: 'https://github.com/machado-vt/Teste-API-EBAC.git'
-                sh 'npm install'
+                bat 'npm install'
             }
         }
         stage('Test') {
             steps {
-                sh 'NO_COLOR=1 npm test'
+               bat '''set NO_COLOR=1
+npm test'''
             }
         }
     }
